@@ -1,0 +1,324 @@
+@import "./bootstrap";
+
+@font-face {
+    font-family: 'Estedad';
+    src: local(''),
+        url('../fonts/Estedad/Estedad-Medium.woff2') format('woff2'),
+        url('../fonts/Estedad/Estedad-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Estedad';
+    font-weight: bold;
+    src: local(''),
+        url('../fonts/Estedad/Estedad-Bold.woff2') format('woff2'),
+        url('../fonts/Estedad/Estedad-Bold.woff') format('woff');
+}
+
+body {
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: right;
+    font-family: 'Estedad' !important;
+}
+main {
+    @include make-container();
+    padding: 0;
+}
+
+.avatar {
+    min-height: 288px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F8FA;
+
+    img {
+        padding: 24px;
+        background: white;
+        border-radius: 50%;
+    }
+}
+
+#profile {
+    margin: 50px 139px 62px 139px;
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        color: #1473E6;
+        font-size: 18px;
+        font-weight: bold;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #DBEBFD;
+        align-items: center;
+
+        button {
+            background: white;
+            color: #1473E6;
+            border-radius: 20px;
+            padding: 6px 14px;
+            border: 1px solid;
+        }
+    }
+
+    .personalData {
+        form {
+            @include make-row();
+            max-width: 100%;
+            margin: 0
+        }
+
+        .info {
+            width: calc(100% / 2 - 24px);
+            margin: 24px auto;
+            background: #F5F8FA;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            color: #192B3B;
+            border-radius: 8px;
+
+            input {
+                color: #1473E6;
+                font-size: 16px;
+                font-weight: bold;
+                border: none;
+                background-color: transparent;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.nav-item {
+    background-color: #F5F8FA !important;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .activeIcon {
+        display: none;
+    }
+
+    .Icon {
+        display: block;
+    }
+
+    &:hover {
+        border: none;
+    }
+
+    &.active {
+        border-bottom: 2px solid #1473E6 !important;
+
+        .activeIcon {
+            display: block;
+        }
+
+        .Icon {
+            display: none;
+        }
+    }
+}
+
+#nav-tab {
+    background: #F5F8FA !important;
+    border: none !important;
+    padding-right: 139px;
+}
+
+a {
+    color: #506176 !important;
+
+    &.active {
+        color: #1473E6 !important;
+    }
+}
+
+#bundler {
+    margin: 50px 139px 62px 139px;
+    background: #F5F8FA;
+    border-radius: 16px;
+
+    .currentPrice {
+        text-decoration: line-through;
+    }
+
+    .products {
+        @include make-row();
+        padding: 50px 76px;
+        max-width: 100%;
+        margin: auto;
+
+        .mainProduct {
+            @include make-col(3);
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .attachs {
+            @include make-col(9);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .attach {
+                max-width: 100%;
+                margin: 0 !important;
+                @include make-row();
+
+                .plusIcon {
+                    @include make-col(1);
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    font-size: 24px;
+                }
+            }
+
+            .attachDetails {
+                @include make-col(11);
+                padding: 8px;
+                display: flex;
+                justify-content: space-between;
+                background-color: #FFFFFF;
+                border-radius: 8px;
+
+                .right {
+                    display: flex;
+                    align-items: center;
+
+                    .offCount {
+                        margin: 15px 0;
+
+                        span {
+                            padding: 5px 10px;
+                            background: #FDE2E3;
+                            border-radius: 12px;
+                            color: #F76D74;
+                        }
+                    }
+                }
+
+                .price {
+                    flex-direction: column;
+                    gap: 0 !important;
+                    text-align: left;
+
+                    .currentPrice {
+                        color: #98A5B1 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    h1 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #506176;
+        padding: 37px 76px 0 0;
+    }
+
+    .price {
+        float: left;
+        font-size: 16px;
+        color: #1473E6;
+        gap: 16px;
+        display: flex;
+
+        span {
+            padding: 7px 12px;
+
+            &.offPrice {
+                background: #DBEBFD;
+                border-bottom-right-radius: 16px;
+                border-top-left-radius: 16px;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #nav-tab {
+        padding-right: 10px;
+    }
+
+    #profile {
+        margin: 15px 10px !important;
+
+        .info {
+            width: 100% !important;
+            margin: 16px auto !important;
+
+            input {
+                max-width: 60%;
+            }
+        }
+    }
+
+    #bundler {
+        margin: 15px 10px !important;
+
+        .price {
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .productName {
+            h1 {
+                padding: 0 10px !important;
+                font-size: 16px !important;
+            }
+        }
+
+        .mainProductMobile {
+            display: block !important;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .mainProduct {
+            display: none !important;
+        }
+
+        .products {
+            padding: 16px !important;
+
+            .plusIcon {
+                display: none !important;
+            }
+        }
+
+        .attachs {
+            width: 100% !important;
+
+            .attachDetails {
+                width: 100% !important;
+                flex-direction: column;
+
+                .offCount {
+                    display: none !important;
+                }
+
+                .price {
+                    flex-direction: row !important;
+                    justify-content: flex-end !important;
+                }
+            }
+        }
+
+    }
+}
